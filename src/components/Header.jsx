@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 export default function Header() {
   const location = useLocation();
+  console.log(location.pathname);
   const navigate = useNavigate();
   function pathMatchRoute(route) {
     if (route === location.pathname) return true;
@@ -20,27 +21,33 @@ export default function Header() {
           />
         </div>
         <div>
-          <ul className="flex space-x-10">
+          <ul className="flex space-x-10 text-gray-400">
             <li
-              className={`cursor-pointer py-3 text-sm font-semibold text-gray-400 border-b-[3px] border-b-transparent ${
-                pathMatchRoute("/") && "text-black border-b-red-600"
-              }`}
+              className={`${
+                pathMatchRoute("/")
+                  ? "text-blue-700  border-b-blue-700 border-b-[3px] font-semibold"
+                  : ""
+              } cursor-pointer py-3 text-sm   `}
               onClick={() => navigate("/")}
             >
               Home
             </li>
             <li
-              className={`cursor-pointer py-3 text-sm font-semibold text-gray-400 border-b-[3px] border-b-transparent ${
-                pathMatchRoute("/offers") && "text-black border-b-red-600"
-              }`}
+              className={`${
+                pathMatchRoute("/offers")
+                  ? "text-blue-700  border-b-blue-700 border-b-[3px] font-semibold"
+                  : ""
+              } cursor-pointer py-3 text-sm    `}
               onClick={() => navigate("/offers")}
             >
               Offers
             </li>
             <li
-              className={`cursor-pointer py-3 text-sm font-semibold text-gray-400 border-b-[3px] border-b-transparent ${
-                pathMatchRoute("/sign-in") && "text-black border-b-red-600"
-              }`}
+              className={`${
+                pathMatchRoute("/sign-in")
+                  ? "text-blue-700  border-b-blue-700 border-b-[3px] font-semibold"
+                  : ""
+              } cursor-pointer py-3 text-sm     `}
               onClick={() => navigate("/sign-in")}
             >
               Sign in
